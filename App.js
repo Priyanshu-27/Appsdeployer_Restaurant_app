@@ -1,12 +1,29 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View , SafeAreaView } from 'react-native';
+import Mainpage from './src/Mainpage';
+import data from './src/Data';
+import FoodDetail from './src/FoodDetail';
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+// import { createStackNavigator } from '@react-navigation/stack';
 
+
+
+const Stack = createNativeStackNavigator();
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    
+    //  <Mainpage data={data}/>
+      <NavigationContainer>
+      <Stack.Navigator>
+        <Stack.Screen name="Mainpage" component={Mainpage} options={{headerShown:false}} />
+        <Stack.Screen name="FoodDetail" component={FoodDetail} />
+      </Stack.Navigator>
+    </NavigationContainer>
+ 
+    
+      
+    
   );
 }
 
